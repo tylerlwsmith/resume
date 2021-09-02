@@ -129,7 +129,8 @@ strong {
 .resume__title {
   position: relative;
   left: -242px;
-  margin: 0;
+	line-height: 1.2;
+	margin: 0.25em 0;
   font-size: 62.2pt;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
