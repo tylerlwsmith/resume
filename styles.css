@@ -144,7 +144,7 @@ strong {
 }
 @media screen and (max-width: 600px) {
   .resume__title {
-    font-size: clamp(30pt, 12vw, 60pt);
+    font-size: clamp(30pt, 13.5vw, 62.2pt)
   }
 }
 .first-name {
