@@ -6,6 +6,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+  color-adjust: exact !important; /*Firefox*/
 }
 @page {
   size: letter portrait;
@@ -129,8 +131,8 @@ strong {
 .resume__title {
   position: relative;
   left: -242px;
-	line-height: 1.2;
-	margin: 0.25em 0;
+  line-height: 1.2;
+  margin: 0.25em 0;
   font-size: 62.2pt;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -144,7 +146,7 @@ strong {
 }
 @media screen and (max-width: 600px) {
   .resume__title {
-    font-size: clamp(30pt, 13.5vw, 62.2pt)
+    font-size: clamp(30pt, 13.5vw, 62.2pt);
   }
 }
 .first-name {
