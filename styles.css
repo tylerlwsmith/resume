@@ -158,10 +158,6 @@ strong {
   }
 }
 .print-button {
-  opacity: 1;
-  position: fixed;
-  top: 20px;
-  right: 20px;
   background-color: var(--color__primary);
   color: #fff;
   appearance: none;
@@ -170,11 +166,11 @@ strong {
   border-radius: 1000px;
   font-weight: bold;
   letter-spacing: 0.05em;
-  transition: all 0.2s;
+  transition: all 0.1s;
   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
 }
 .print-button:active {
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
   transform: translateY(2px);
 }
 .print-button:hover,
@@ -182,13 +178,19 @@ strong {
 .print-button:active {
   background-color: #0c7bcf;
 }
+.print-button__wrapper {
+  opacity: 1;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
 @media screen and (max-width: 920px) {
-  .print-button {
+  .print-button__wrapper {
     position: absolute;
   }
 }
 @media screen and (max-width: 820px) {
-  .print-button {
+  .print-button__wrapper {
     display: none;
   }
 }
@@ -326,7 +328,7 @@ strong {
   .page-wrapper {
     overflow: hidden;
   }
-  .print-button {
+  .print-button__wrapper {
     display: none;
   }
   .screen-reader--desktop {
