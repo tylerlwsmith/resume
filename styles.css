@@ -165,17 +165,17 @@ strong {
   border-radius: 1000px;
   font-weight: bold;
   letter-spacing: 0.05em;
-  transition: all 0.1s;
+  transition: box-shadow, transform, 0.1s;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+}
+.print-button:hover,
+.print-button:focus {
+  background-color: #0c7bcf;
 }
 .print-button:active {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
   transform: translateY(2px);
-}
-.print-button:hover,
-.print-button:focus,
-.print-button:active {
-  background-color: #0c7bcf;
+  background-color: #2a97eb;
 }
 .print-button__wrapper {
   opacity: 1;
