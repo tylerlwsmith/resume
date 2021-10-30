@@ -108,7 +108,6 @@ strong {
     margin-bottom: 2pt;
   }
 }
-
 .avatar__wrapper {
   background: var(--color__primary);
   padding: 0.3in 0.5in;
@@ -167,10 +166,10 @@ strong {
   font-weight: bold;
   letter-spacing: 0.05em;
   transition: all 0.1s;
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
 }
 .print-button:active {
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
   transform: translateY(2px);
 }
 .print-button:hover,
