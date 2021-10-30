@@ -48,14 +48,14 @@
           when clicked. This can cause a misfire if the button is no longer 
           under the cursor when the mouseup event occurs.
           -->
-          <div class="print-button__wrapper" onclick="window.print()">
+          <div class="print-button__wrapper" data-trigger-print>
             <button class="print-button">Print</button>
           </div>
           <ul class="contact-list">
             <li class="contact-list__item">
-              <a href="tel:661-378-5228" class="contact-list__link"
-                >(661) 378-5228</a
-              >
+              <a href="tel:661-378-5228" class="contact-list__link">
+                (661) 378-5228
+              </a>
             </li>
             <li class="contact-list__item">
               <a
@@ -213,5 +213,16 @@
         </div>
       </aside>
     </div>
+    <script>
+      /**
+       * Triggering a print immediately after the print button is clicked causes
+       * animation jank during the transition from the button's active state to
+       * its non-active state in Chrome. Delaying the print allows the animation
+       * to finish gracefully.
+       */
+      document
+        .querySelector("[data-trigger-print]")
+        .addEventListener("click", () => setTimeout(() => window.print(), 100));
+    </script>
   </body>
 </html>
