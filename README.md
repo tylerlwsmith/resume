@@ -1,5 +1,5 @@
 # Resume
 
-It turns out HTML and CSS are a pretty good layout language. This resume was designed to fit on a single "US Letter" sized page when printed from Chrome at 100% with no margins set in the print settings. It is also mobile responsive. 
+This repo contains my resume that I send to prospective employers. It is also a mobile responsive website that uses semantic HTML. The project uses several media queries for screen and print that allow it to serve both of these purposes well.
 
-You can view my resume at [raspberrytyler.com](https://raspberrytyler.com/).
+You can check it out at [raspberrytyler.com](https://raspberrytyler.com/). If you're visiting from a desktop device, click the print button to preview how the resume looks when printed.
