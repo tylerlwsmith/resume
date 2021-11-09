@@ -167,6 +167,7 @@ strong {
   letter-spacing: 0.05em;
   transition: box-shadow, transform, 0.1s;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 .print-button:hover,
 .print-button:focus {
@@ -182,6 +183,7 @@ strong {
   position: fixed;
   top: 20px;
   right: 20px;
+  border-radius: 1000px; /* Needed to make sure clicks don't capture on the corners. */
 }
 @media screen and (max-width: 920px) {
   .print-button__wrapper {
