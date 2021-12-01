@@ -6,3 +6,4 @@
   NODE_VERSION = "14.18.1"
   NOT_HOST_MACHINE = "1"
   NODE_ENV = "production"
+  AWS_LAMBDA_FUNCTION_NAME = "SOS"
