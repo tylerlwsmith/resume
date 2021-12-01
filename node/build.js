@@ -34,15 +34,34 @@ const app = require("./app");
     executablePath: executablePath,
     args: ["--no-sandbox"],
   });
-
-  console.log("Generating screenshot");
   const page = await browser.newPage();
-  await page.goto(`http://localhost:${server.address().port}/open-graph`);
-  await page.setViewport({ width: 1200, height: 630 });
-  await page.screenshot({
-    path: path.resolve(__dirname, "../public/generated/og-image.png"),
-    fullPage: true,
+
+  console.log("Generating resume PNG and PDF");
+  // Width must be set so we don't hit the mobile breakpoint on png.
+  await page.setViewport({ width: 1056, height: 0 });
+  await page.goto(`http://localhost:${server.address().port}`, {
+    waitUntil: "networkidle2",
   });
+  const pageBody = await page.$("body");
+  await pageBody.screenshot({
+    path: path.resolve(__dirname, "../public/generated/tyler-smith-resume.png"),
+  });
+  await page.pdf({
+    path: path.resolve(__dirname, "../public/generated/tyler-smith-resume.pdf"),
+  });
+
+  console.log("Generating open graph PNG");
+  await page.goto(
+    `http://localhost:${server.address().port}/open-graph-image`,
+    {
+      waitUntil: "networkidle2",
+    }
+  );
+  const openGraphImage = await page.$("#open-graph-image");
+  await openGraphImage.screenshot({
+    path: path.resolve(__dirname, "../public/generated/open-graph-image.png"),
+  });
+
   await browser.close();
 
   /** Close the server. */

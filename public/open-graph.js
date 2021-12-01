@@ -29,7 +29,7 @@ function addOpenGraphStyles() {
       text-decoration: none;
     }
 
-    .print-button {
+    .download-button {
       display: none;
     }
 

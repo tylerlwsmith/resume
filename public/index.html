@@ -18,7 +18,7 @@
     />
     <meta
       property="og:image"
-      content="https://raspberrytyler.com/generated/og-image.png"
+      content="https://raspberrytyler.com/generated/open-graph-image.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -46,14 +46,18 @@
             <span class="first-name">Tyler</span> Smith
           </h1>
           <!-- 
-          The print handler is on the button's wrapper instead of on the button 
+          The download handler is on the link's wrapper instead of on the link 
           itself because the button moves several pixels when it's clicked. 
-          This can cause a misfire if the button is no longer under the 
+          This can cause a misfire if the link is no longer under the 
           cursor when the mouse up event occurs.
           -->
-          <div class="print-button__wrapper" data-trigger-print>
-            <button class="print-button">Print</button>
-          </div>
+          <a
+            class="download-button__wrapper"
+            href="/generated/tyler-smith-resume.pdf"
+            download
+          >
+            <span class="download-button">Download</span>
+          </a>
           <ul class="contact-list">
             <li class="contact-list__item">
               <a href="tel:661-378-5228" class="contact-list__link">
@@ -216,16 +220,5 @@
         </div>
       </aside>
     </div>
-    <script>
-      /**
-       * Triggering a print immediately after the print button is clicked causes
-       * animation jank during the transition from the button's active state to
-       * its non-active state in Chrome. Delaying the print allows the animation
-       * to finish gracefully.
-       */
-      document
-        .querySelector("[data-trigger-print]")
-        .addEventListener("click", () => setTimeout(() => window.print(), 100));
-    </script>
   </body>
 </html>
