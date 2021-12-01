@@ -83,12 +83,8 @@ function addOpenGraphStyles() {
 function wrapWordsWithSpan(selectors, spanClass = "") {
   selector = Array.isArray(selectors) ? selectors.join(", ") : selectors;
   [...document.querySelectorAll(selector)].forEach(function (el) {
-    el.innerHTML = el.innerText
-      .split(" ")
-      .map(
-        (word) =>
-          `<span ${spanClass ? `class="${spanClass}"` : ""}">${word} </span>`
-      )
-      .join("");
+    el.innerHTML = `<span ${spanClass ? `class="${spanClass}"` : ""}">${
+      el.innerText
+    } </span>`;
   });
 }
