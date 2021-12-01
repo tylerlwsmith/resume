@@ -29,7 +29,7 @@ const app = require("./app");
       ? "/usr/bin/chromium"
       : await chromium.executablePath;
 
-  browser = await puppeteer.launch({
+  browser = await chromium.puppeteer.launch({
     headless: true,
     executablePath: executablePath,
     args: ["--no-sandbox"],
