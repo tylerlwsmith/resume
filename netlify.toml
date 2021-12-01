@@ -1,0 +1,5 @@
+[build]
+  publish = "public/"
+
+[build.environment]
+  NOT_HOST_MACHINE = "true"

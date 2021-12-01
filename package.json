@@ -12,8 +12,10 @@
     "delay": 100
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "nodemon server.js"
+    "preinstall": "[ \"$NOT_HOST_MACHINE\" != 1 ] && echo \"No installing modules on host machine: use a container!\n\" 1>&2 && exit 1; exit 0",
+    "predevelop": "[ \"$NOT_HOST_MACHINE\" != 1 ] && echo \"No running on host machine: use a container!\n\" 1>&2 && exit 1; exit 0",
+    "develop": "nodemon node/server.js",
+    "shell": "docker-compose run --rm --service-ports node /bin/bash"
   },
   "repository": {
     "type": "git",

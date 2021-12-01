@@ -1,0 +1,15 @@
+# https://docs.docker.com/compose/compose-file/compose-file-v3/
+version: "3.9"
+
+services:
+  node:
+    image: node:14.18.1-buster
+    user: node
+    working_dir: /srv/app
+    volumes:
+      - .:/srv/app
+    environment:
+      NODE_ENV: development
+      NOT_HOST_MACHINE: 1
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
