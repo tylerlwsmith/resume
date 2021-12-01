@@ -24,18 +24,16 @@ const app = require("./app");
 
   /** Set up Puppeteer, navigate to the server and generate a screenshot. */
   console.log("Launching Puppeteer");
-  browser =
+  const executablePath =
     process.env.NODE_ENV === "development"
-      ? await puppeteer.launch({
-          headless: true,
-          executablePath: "/usr/bin/chromium",
-          args: ["--no-sandbox"],
-        })
-      : await chromium.puppeteer.launch({
-          headless: true,
-          executablePath: await chromium.executablePath,
-          args: ["--no-sandbox"],
-        });
+      ? "/usr/bin/chromium"
+      : await chromium.executablePath;
+
+  browser = await puppeteer.launch({
+    headless: true,
+    executablePath: executablePath,
+    args: ["--no-sandbox"],
+  });
 
   console.log("Generating screenshot");
   const page = await browser.newPage();
