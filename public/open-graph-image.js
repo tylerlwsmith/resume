@@ -5,7 +5,7 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("open-graph") === null) return;
+  if (urlParams.get("open-graph-image") === null) return;
 
   wrapWordsWithSpan(
     [".job__title", ".job__date", ".job__responsibility", ".education-detail"],
