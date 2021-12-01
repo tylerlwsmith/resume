@@ -29,6 +29,10 @@ function addOpenGraphStyles() {
       text-decoration: none;
     }
 
+    .print-button {
+      display: none;
+    }
+
     .contact-list__item:after {
       color: transparent;
     }

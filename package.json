@@ -1,0 +1,35 @@
+{
+  "name": "raspberrytyler.com",
+  "version": "1.0.0",
+  "description": "This repo contains my resume that I send to prospective employers. It is also a mobile responsive website that uses semantic HTML. The project uses several media queries for screen and print that allow it to serve both of these purposes well.",
+  "main": "server.js",
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*",
+      "public/*"
+    ],
+    "ext": "*.js",
+    "delay": 100
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerlwsmith/resume.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylerlwsmith/resume/issues"
+  },
+  "homepage": "https://github.com/tylerlwsmith/resume#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

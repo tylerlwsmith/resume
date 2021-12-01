@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Open Graph</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <style>
+      *,
+      *:before,
+      *:after {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+      }
+      .card {
+        background: #404040;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script>
+      const scale = 0.5;
+      const additionalPx = 6; /** Corrects media query breaking at wrong time */
+      const styleTag = document.createElement("style");
+      styleTag.innerHTML = `
+        .iframe-wrapper {
+          box-shadow: 10px 10px 0px #2c2c2c;
+          width: calc(calc(8.5in + ${additionalPx}px) * ${scale});
+          height: calc(calc(11in + ${additionalPx}px) * ${scale});
+          overflow: hidden;
+        }
+        .iframe {
+          transform: scale(${scale});
+          transform-origin: top left;
+          width: calc(8.5in + ${additionalPx}px);
+          height: calc(11in + ${additionalPx}px);
+          overflow: hidden;
+        }
+      `;
+      document.head.appendChild(styleTag);
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="iframe-wrapper">
+        <iframe src="/?open-graph" frameborder="0" class="iframe"></iframe>
+      </div>
+    </div>
+  </body>
+</html>
