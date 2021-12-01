@@ -4,5 +4,5 @@
 
 [build.environment]
   NODE_VERSION = "14.18.1"
-  NOT_HOST_MACHINE = "true"
+  NOT_HOST_MACHINE = 1
   NODE_ENV = "production"
