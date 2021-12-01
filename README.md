@@ -52,7 +52,7 @@ When code is committed to the main branch, Netlify will run the `npm run build` 
 
 The `chrome-aws-lambda` package provides a pre-compiled Chromium executable designed to run in a serverless environment without relying on system dependencies. When developing in the container, `node/build.js` uses Debian's Chromium instead.
 
-## Open graph generation
+## Open graph image generation
 
 The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://raspberrytyler.com/?open-graph-image.
 
