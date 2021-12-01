@@ -38,7 +38,7 @@ const app = require("./app");
 
   console.log("Generating resume PNG and PDF");
   // Width must be set so we don't hit the mobile breakpoint on png.
-  await page.setViewport({ width: 1056, height: 0 });
+  await page.setViewport({ width: 1056, height: 0, deviceScaleFactor: 2 });
   await page.goto(`http://localhost:${server.address().port}`, {
     waitUntil: "networkidle2",
   });
@@ -58,6 +58,7 @@ const app = require("./app");
     }
   );
   const openGraphImage = await page.$("#open-graph-image");
+  await page.setViewport({ height: 630, width: 1200, deviceScaleFactor: 1 });
   await openGraphImage.screenshot({
     path: path.resolve(__dirname, "../public/generated/open-graph-image.png"),
   });
