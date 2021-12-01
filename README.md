@@ -2,7 +2,7 @@
 
 This repo contains my resume, which was built using web technologies. Modern CSS is a powerful layout language that allows me to make page-wide changes much faster than I would be able to if I were using InDesign. Using web technologies also allows me to use the exact same code as a website, which you can find at [raspberrytyler.com](https://raspberrytyler.com/). The site is mobile responsive, uses semantic markup, and takes advantage of CSS's print styling capabilities.
 
-When code is pushed to the main branch, the build process will use Puppeteer to generate an open graph image for the website, along with a PDF and PNG file of the resume.
+When code is pushed to the main branch, the build process will use Puppeteer to generate an open graph image for the website, along with a PDF and PNG file of the resume. You can see the most recently generated image of the resume below.
 
 ![Tyler's resume](https://raspberrytyler.com/generated/tyler-smith-resume.png)
 
