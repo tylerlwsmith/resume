@@ -128,10 +128,9 @@ strong {
   }
 }
 .resume__title {
-  position: relative;
-  left: -242px;
-  line-height: 1.2;
   margin: 0.25em 0;
+  margin-left: -242px;
+  line-height: 1.2;
   font-size: 62.2pt;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -139,8 +138,7 @@ strong {
 }
 @media screen and (max-width: 820px) {
   .resume__title {
-    width: 100%;
-    left: 0;
+    margin-left: 0;
   }
 }
 @media screen and (max-width: 600px) {
