@@ -1,21 +1,18 @@
+<%_ "<!-- prettier-ignore -->" _%>
+<%_ title = "Resume of Tyler Smith" _%> 
+<%_ description = "The resume of Tyler Smith, a California-based software engineer." _%>
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <title>Resume of Tyler Smith</title>
-    <meta
-      name="description"
-      content="The resume of Tyler Smith, a California-based software engineer."
-    />
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:title" content="Resume of Tyler Smith" />
+    <meta property="og:title" content="<%= title %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://raspberrytyler.com" />
-    <meta
-      property="og:description"
-      content="Resume of Tyler Smith, a California-based software engineer."
-    />
+    <meta property="og:description" content="<%= description %>" />
     <meta
       property="og:image"
       content="https://raspberrytyler.com/generated/open-graph-image.png?ref=<%= commitRef %>"
