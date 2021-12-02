@@ -14,5 +14,6 @@ services:
     environment:
       NODE_ENV: development
       NOT_HOST_MACHINE: 1
+      COMMIT_REF: "${COMMIT_REF:-none}"
     ports:
       - "${PORT:-3000}:${PORT:-3000}"

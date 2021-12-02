@@ -16,7 +16,7 @@ docker-compose run --rm npm install
 docker-compose up
 ```
 
-This will build a container with Chromium and its dependencies, install the Node packages, and start the development server at http://localhost:3000. The container is only intended for local development: it simply provides a runtime to mount your local installation into. On the production server, Netlify will serve the static files from the `public/` directory.
+This will build a container with Chromium and its dependencies, install the Node packages, and start the development server at http://localhost:3000. The container is only intended for local development: it simply provides a runtime to mount your local installation into. On the production server, Netlify will serve the static files from the `build/` directory.
 
 NPM will prevent the host machine from running the development server or running `npm install` by checking if a `NOT_HOST_MACHINE` environment variable is present and set to `1`. This ensures better isolation between the container and host, and prevents accidental installation of packages with non-Linux binaries bundled. You can read about how I implemented this in [my blog post](https://dev.to/tylerlwsmith/prevent-npm-from-installing-packages-outside-of-a-docker-container-akh).
 
@@ -34,13 +34,13 @@ npm install lodash
 
 ## Generating assets locally
 
-To generate the assets locally, run the following command from the host machine while the container is up:
+Assets are automatically generated when the development server starts. To regenerate the assets manually, run the following command from the host machine while the container is up:
 
 ```sh
 docker-compose exec node npm run build
 ```
 
-This kicks off the `node/build.js` script, which saves the generated files to the `public/generated` directory. _Generated files are not committed into version control_.
+This kicks off the `node/build.js` script, which saves the generated files to the `build/generated` directory. _Generated files are not committed into version control_.
 
 ## Generating assets with Puppeteer on Netlify
 
@@ -56,6 +56,20 @@ The `chrome-aws-lambda` package provides a pre-compiled Chromium executable desi
 
 The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://raspberrytyler.com/?open-graph-image.
 
-This low-resolution version of the resume is then pulled into `public/open-graph-image/index.html` via iframe, which Puppeteer uses as a template for generating the final open graph image.
+This low-resolution version of the resume is then pulled into `templates/open-graph-image.ejs` via iframe, which Puppeteer uses as a template for generating the final open graph image.
 
 ![The resume website's open graph image](https://raspberrytyler.com/generated/open-graph-image.png)
+
+## Open graph image cache busting
+
+Platforms like Facebook cache open graph images based on the URL, and therefore won't always pick up changes made to the image.
+
+To combat this problem, a commit ref is added as a query parameter to the end of the open graph URL. The app uses a `COMMIT_REF` environment variable to grab the current commit.
+
+To use this environment variable during development, start the server with the following command:
+
+```sh
+COMMIT_REF=$(git show-ref --hash refs/heads/main) docker-compose up
+```
+
+Netlify automatically provides a `COMMIT_REF` environment variable at build time.
