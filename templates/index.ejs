@@ -55,6 +55,25 @@
           <a
             class="download-button__wrapper"
             href="/generated/tyler-smith-resume.pdf"
+            onclick="
+              const date = new Date();
+              const dateObj = {
+                year: date.getFullYear(),
+                month: date.getMonth() + 1,
+                date: date.getDate(),
+                formatDate() {
+                  return [
+                    this.year,
+                    this.month.toString().padStart(2, '0'),
+                    this.date.toString().padStart(2, '0'),
+                  ].join('-');
+                }
+              }
+              this.setAttribute(
+                'download',
+                `tyler-smith-resume-${dateObj.formatDate()}.pdf`
+              );
+            "
             download
           >
             <span class="download-button">Download</span>
