@@ -6,24 +6,26 @@ const connectLivereload = require("connect-livereload");
 const { homepage, openGraphImage } = require("./templates");
 const app = express();
 
-// Open livereload and watch for changes
-const liveReloadServer = livereload.createServer({
-  port: process.env.LIVERELOAD_PORT || 35729,
-  exts: ["css", "js", "ejs"],
-});
-liveReloadServer.watch([
-  path.join(__dirname, "../public"),
-  path.join(__dirname, "../templates"),
-]);
+if (process.env.USE_LIVERELOAD === 1) {
+  // Open livereload and watch for changes
+  const liveReloadServer = livereload.createServer({
+    port: process.env.LIVERELOAD_PORT || 35729,
+    exts: ["css", "js", "ejs"],
+  });
+  liveReloadServer.watch([
+    path.join(__dirname, "../public"),
+    path.join(__dirname, "../templates"),
+  ]);
 
-// Ping browser on server boot once browser has reconnected
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+  // Ping browser on server boot once browser has reconnected
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
 
-app.use(connectLivereload());
+  app.use(connectLivereload());
+}
 
 app.get("/", function (req, res) {
   res.send(homepage());
