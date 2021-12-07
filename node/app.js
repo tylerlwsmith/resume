@@ -6,7 +6,7 @@ const connectLivereload = require("connect-livereload");
 const { homepage, openGraphImage } = require("./templates");
 const app = express();
 
-if (process.env.USE_LIVERELOAD === 1) {
+if (process.env.ENABLE_LIVERELOAD === "1") {
   // Open livereload and watch for changes
   const liveReloadServer = livereload.createServer({
     port: process.env.LIVERELOAD_PORT || 35729,
