@@ -9,7 +9,7 @@
       "public/*",
       "build/*"
     ],
-    "ext": "*.js, *.ejs",
+    "ext": "*.js",
     "delay": 100
   },
   "scripts": {

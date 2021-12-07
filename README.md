@@ -76,6 +76,4 @@ Netlify automatically provides a `COMMIT_REF` environment variable at build time
 
 ## Livereload
 
-For a better development experience, Livereload is used to show edits in the browser without refreshing having to refresh the page. Changes to CSS and JS files are instant, but changes to EJS files require a full server restart with Nodemon. This is because live reload is designed to serve files.
-
-The current maintainer offered a workaround in [a GitHub issue](https://github.com/napcs/node-livereload/issues/68#issuecomment-310928233) that may be worth implementing in the future. The current implementation is based on this [Stack Overflow answer](https://stackoverflow.com/a/60542066/7759523).
+For a better development experience, LiveReload is used to show edits in the browser without refreshing having to refresh the page. Changes to CSS, JS and EJS files are instant. Normally, EJS files would require a full server reload using Nodemon, but the current LiveReload maintainer offered a workaround in [a GitHub issue](https://github.com/napcs/node-livereload/issues/68#issuecomment-310928233) that is impelemented on this project.
