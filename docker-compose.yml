@@ -17,3 +17,4 @@ services:
       COMMIT_REF: "${COMMIT_REF:-none}"
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
+      - "${LIVERELOAD_PORT:-35729}:${LIVERELOAD_PORT:-35729}"

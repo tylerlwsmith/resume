@@ -9,7 +9,7 @@
       "public/*",
       "build/*"
     ],
-    "ext": "*.js",
+    "ext": "*.js, *.ejs",
     "delay": 100
   },
   "scripts": {
@@ -34,9 +34,11 @@
   "homepage": "https://github.com/tylerlwsmith/resume#readme",
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
+    "connect-livereload": "^0.6.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
+    "livereload": "^0.9.3",
     "puppeteer-core": "^12.0.1"
   },
   "devDependencies": {
