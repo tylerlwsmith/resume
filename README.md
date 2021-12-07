@@ -52,6 +52,10 @@ When code is committed to the main branch, Netlify will run the `npm run build` 
 
 The `chrome-aws-lambda` package provides a pre-compiled Chromium executable designed to run in a serverless environment without relying on system dependencies. When developing in the container, `node/build.js` uses Debian's Chromium instead.
 
+## Skipping builds on Netlify
+
+On commits that don't require a new build (like when making edits to the README), you can add `[skip ci]` or `[skip netlify]` to anywhere in the commit message. Netlify won't build that commit until a newer commit without that string in the commit message arrives, which conserves the monthly build minutes. You can read more about this in the [Netlify docs](https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy).
+
 ## Open graph image generation
 
 The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://raspberrytyler.com/?open-graph-image.
