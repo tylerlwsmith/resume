@@ -13,11 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const styleTag = document.createElement("style");
   styleTag.innerHTML = `
-    /* Style overrides */
-    :root {
-      --color__primary: #59389b;
-    }
-
     body {
       background: transparent;
       height: initial;
