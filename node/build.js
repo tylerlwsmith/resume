@@ -5,18 +5,18 @@ const { homepage } = require("./templates");
 
 (async function build() {
   console.log("Clearing directory folder if it exists ...");
-  fse.emptyDirSync(path.resolve(__dirname, "../build"));
+  fse.emptyDirSync(path.join(__dirname, "../build"));
 
   console.log("Creating directory for generated assets ...");
-  fse.emptyDirSync(path.resolve(__dirname, "../build/generated"));
+  fse.emptyDirSync(path.join(__dirname, "../build/generated"));
   fse.copySync(
-    path.resolve(__dirname, "../public"),
-    path.resolve(__dirname, "../build")
+    path.join(__dirname, "../public"),
+    path.join(__dirname, "../build")
   );
 
   console.log("Generating assets ...");
   await generateAssets();
 
   console.log("Copying rendered homepage into build directory ...");
-  fse.writeFileSync(path.resolve(__dirname, "../build/index.html"), homepage());
+  fse.writeFileSync(path.join(__dirname, "../build/index.html"), homepage());
 })();

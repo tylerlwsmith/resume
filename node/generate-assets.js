@@ -44,10 +44,10 @@ async function generateAssets() {
   });
   const pageBody = await page.$("body");
   await pageBody.screenshot({
-    path: path.resolve(__dirname, "../build/generated/tyler-smith-resume.png"),
+    path: path.join(__dirname, "../build/generated/tyler-smith-resume.png"),
   });
   await page.pdf({
-    path: path.resolve(__dirname, "../build/generated/tyler-smith-resume.pdf"),
+    path: path.join(__dirname, "../build/generated/tyler-smith-resume.pdf"),
   });
 
   console.log("Generating open graph PNG");
@@ -60,7 +60,7 @@ async function generateAssets() {
   const openGraphImage = await page.$("#open-graph-image");
   await page.setViewport({ height: 630, width: 1200, deviceScaleFactor: 1 });
   await openGraphImage.screenshot({
-    path: path.resolve(__dirname, "../build/generated/open-graph-image.png"),
+    path: path.join(__dirname, "../build/generated/open-graph-image.png"),
   });
 
   await browser.close();
