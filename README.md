@@ -1,10 +1,10 @@
 # Resume
 
-This repo contains my resume, which was built using web technologies. Modern CSS is a powerful layout language that allows me to make page-wide changes much faster than I would be able to if I were using InDesign. Using web technologies also allows me to use the exact same code as a website, which you can find at [raspberrytyler.com](https://raspberrytyler.com/). The site is mobile responsive, uses semantic markup, and takes advantage of CSS's print styling capabilities.
+This repo contains my resume, which was built using web technologies. Modern CSS is a powerful layout language that allows me to make page-wide changes much faster than I would be able to if I were using InDesign. Using web technologies also allows me to use the exact same code as a website, which you can find at [resume.deadhandmedia.com](https://resume.deadhandmedia.com/). The site is mobile responsive, uses semantic markup, and takes advantage of CSS's print styling capabilities.
 
 When code is pushed to the main branch, the build process will use Puppeteer to generate an open graph image for the website, along with a PDF and PNG file of the resume. You can see the most recently generated image of the resume below.
 
-![Tyler's resume](https://raspberrytyler.com/generated/tyler-smith-resume.png)
+<img src="https://resume.deadhandmedia.com/generated/tyler-smith-resume.png?cache-bust=2021-12-20" alt="Tyler's resume" width="600">
 
 ## Developing locally
 
@@ -58,11 +58,11 @@ On commits that don't require a new build (like when making edits to the README)
 
 ## Open graph image generation
 
-The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://raspberrytyler.com/?open-graph-image.
+The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://resume.deadhandmedia.com/?open-graph-image.
 
 This low-resolution version of the resume is then pulled into `templates/open-graph-image.ejs` via iframe, which Puppeteer uses as a template for generating the final open graph image.
 
-![The resume website's open graph image](https://raspberrytyler.com/generated/open-graph-image.png)
+![The resume website's open graph image](https://resume.deadhandmedia.com/generated/open-graph-image.png)
 
 ## Open graph image cache busting
 
