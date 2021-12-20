@@ -29,20 +29,19 @@
     </style>
     <script>
       const scale = 0.5;
-      const additionalPx = 6; /** Corrects media query breaking at wrong time */
       const styleTag = document.createElement("style");
       styleTag.innerHTML = `
         .iframe-wrapper {
           box-shadow: 16px 16px 0px #2c2c2c;
-          width: calc(calc(8.5in + ${additionalPx}px) * ${scale});
-          height: calc(calc(11in + ${additionalPx}px) * ${scale});
+          width: calc(8.5in * ${scale});
+          height: calc(11in * ${scale});
           overflow: hidden;
         }
         .iframe {
           transform: scale(${scale});
           transform-origin: top left;
-          width: calc(8.5in + ${additionalPx}px);
-          height: calc(11in + ${additionalPx}px);
+          width: 8.5in;
+          height: 11in;
           overflow: hidden;
         }
       `;

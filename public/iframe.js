@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
     window.top.postMessage(height, "*");
   }
 
+  // Needed so for correct resizing from mobile to desktop.
   const styleTag = document.createElement("style");
   styleTag.innerHTML = `
     body {
-      background: transparent;
       height: initial;
     }
   `;

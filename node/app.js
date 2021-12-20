@@ -3,7 +3,7 @@ const express = require("express");
 const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
 
-const { homepage, openGraphImage } = require("./templates");
+const { homepage, openGraphImage, embed } = require("./templates");
 const app = express();
 
 if (process.env.ENABLE_LIVERELOAD === "1") {
@@ -33,6 +33,10 @@ app.get("/", function (req, res) {
 
 app.get("/open-graph-image", function (req, res) {
   res.send(openGraphImage());
+});
+
+app.get("/embed", function (req, res) {
+  res.send(embed());
 });
 
 app.use(express.static(path.join(__dirname, "../public")));

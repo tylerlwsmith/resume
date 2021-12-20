@@ -17,4 +17,11 @@ function openGraphImage() {
   return ejs.render(fileContent);
 }
 
-module.exports = { homepage, openGraphImage };
+function embed() {
+  const fileContent = fs
+    .readFileSync(path.join(__dirname, "../templates/embed.ejs"))
+    .toString();
+  return ejs.render(fileContent);
+}
+
+module.exports = { homepage, openGraphImage, embed };
