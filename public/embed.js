@@ -6,7 +6,6 @@
   const wrapper = document.createElement("div");
   wrapper.classList.add("tyler-smith-resume-wrapper");
   wrapper.style.boxSizing = "content-box";
-  wrapper.style.border = "1px solid transparent";
   wrapper.style.width = "100%";
   wrapper.style.maxWidth = "8.5in";
   wrapper.style.minHeight = "11in";
