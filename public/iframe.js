@@ -19,4 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   `;
   document.head.appendChild(styleTag);
+
+  // Needed so the download button doesn't load the PDF inside the iframe.
+  document
+    .querySelector("[data-download-resume]")
+    .addEventListener("click", function (event) {
+      this.removeAttribute("download");
+    });
 });
