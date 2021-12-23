@@ -25,5 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector("[data-download-resume]")
     .addEventListener("click", function (event) {
       this.removeAttribute("download");
+      this.setAttribute("target", "_blank");
     });
 });
