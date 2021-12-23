@@ -192,7 +192,14 @@ strong {
 }
 @media screen and (max-width: calc(8.5in - 1px)) {
   .download-button__wrapper {
-    display: none;
+    position: initial;
+  }
+}
+@media screen and (max-width: calc(8.5in - 1px)) {
+  .download-button__container {
+    text-align: right;
+    margin-right: -10px;
+    margin-bottom: 30px;
   }
 }
 .contact-list {

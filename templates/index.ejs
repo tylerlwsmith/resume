@@ -43,41 +43,43 @@
     <div class="page-wrapper">
       <main class="resume">
         <header>
+          <div class="download-button__container">
+            <!-- 
+            The download link is on the button's wrapper instead of on the button 
+            itself because the button moves several pixels when it's clicked. 
+            This can cause a misfire if the link is no longer under the 
+            cursor when the mouse up event occurs.
+            -->
+            <a
+              class="download-button__wrapper"
+              href="/generated/tyler-smith-resume.pdf"
+              onclick="
+                const date = new Date();
+                const dateObj = {
+                  year: date.getFullYear(),
+                  month: date.getMonth() + 1,
+                  date: date.getDate(),
+                  formatDate() {
+                    return [
+                      this.year,
+                      this.month.toString().padStart(2, '0'),
+                      this.date.toString().padStart(2, '0'),
+                    ].join('-');
+                  }
+                }
+                this.setAttribute(
+                  'download',
+                  `tyler-smith-resume-${dateObj.formatDate()}.pdf`
+                );
+              "
+              download
+            >
+              <span class="download-button">Download</span>
+            </a>
+          </div>
           <h1 class="resume__title">
             <span class="first-name">Tyler</span> Smith
           </h1>
-          <!-- 
-          The download link is on the button's wrapper instead of on the button 
-          itself because the button moves several pixels when it's clicked. 
-          This can cause a misfire if the link is no longer under the 
-          cursor when the mouse up event occurs.
-          -->
-          <a
-            class="download-button__wrapper"
-            href="/generated/tyler-smith-resume.pdf"
-            onclick="
-              const date = new Date();
-              const dateObj = {
-                year: date.getFullYear(),
-                month: date.getMonth() + 1,
-                date: date.getDate(),
-                formatDate() {
-                  return [
-                    this.year,
-                    this.month.toString().padStart(2, '0'),
-                    this.date.toString().padStart(2, '0'),
-                  ].join('-');
-                }
-              }
-              this.setAttribute(
-                'download',
-                `tyler-smith-resume-${dateObj.formatDate()}.pdf`
-              );
-            "
-            download
-          >
-            <span class="download-button">Download</span>
-          </a>
           <ul class="contact-list">
             <li class="contact-list__item">
               <a href="tel:661-378-5228" class="contact-list__link">
