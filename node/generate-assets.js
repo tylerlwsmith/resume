@@ -50,10 +50,10 @@ async function generateAssets() {
   const pageBody = await page.$("body");
   pageBody.evaluate(function (el) {
     const border = document.createElement("div");
-    // border.style.border = "1px solid #ccc";
-    border.style.inset = "0px";
     border.style.position = "absolute";
-
+    border.style.border = "1px solid #ccc";
+    border.style.inset = "0px";
+    border.style.width = `${el.offsetWidth}px`;
     el.appendChild(border);
   });
   await pageBody.screenshot({
