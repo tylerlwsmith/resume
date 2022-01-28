@@ -36,18 +36,27 @@ async function generateAssets() {
   });
   const page = await browser.newPage();
 
-  console.log("Generating resume PNG and PDF");
+  console.log("Generating resume PDF and PNG");
   // Width must be set so we don't hit the mobile breakpoint on png.
   await page.setViewport({ width: 1056, height: 0, deviceScaleFactor: 2 });
   await page.goto(`http://localhost:${server.address().port}`, {
     waitUntil: "networkidle2",
   });
-  const pageBody = await page.$("body");
-  await pageBody.screenshot({
-    path: path.join(__dirname, "../build/generated/tyler-smith-resume.png"),
-  });
+
   await page.pdf({
     path: path.join(__dirname, "../build/generated/tyler-smith-resume.pdf"),
+  });
+
+  const pageBody = await page.$("body");
+  pageBody.evaluate(function (el) {
+    const border = document.createElement("div");
+    border.style.border = "1px solid #ccc";
+    border.style.inset = "0px";
+    border.style.position = "absolute";
+    el.appendChild(border);
+  });
+  await pageBody.screenshot({
+    path: path.join(__dirname, "../build/generated/tyler-smith-resume.png"),
   });
 
   console.log("Generating open graph PNG");
