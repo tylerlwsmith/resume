@@ -6,7 +6,7 @@
   "nodemonConfig": {
     "ignore": [
       "node_modules/*",
-      "public/*",
+      "assets/*",
       "build/*"
     ],
     "ext": "*.js",
@@ -15,7 +15,7 @@
   "scripts": {
     "preinstall": "[ \"$NOT_HOST_MACHINE\" != 1 ] && echo \"No installing modules on host machine: use a container!\n\" 1>&2 && exit 1; exit 0",
     "predevelop": "[ \"$NOT_HOST_MACHINE\" != 1 ] && echo \"No running on host machine: use a container!\n\" 1>&2 && exit 1; exit 0",
-    "develop": "ENABLE_LIVERELOAD=1 nodemon node/server.js",
+    "develop": "ENABLE_LIVERELOAD=1 nodemon scripts/server.js",
     "prebuild": "[ \"$NOT_HOST_MACHINE\" != 1 ] && echo \"No building on host machine: use a container!\n\" 1>&2 && exit 1; exit 0",
     "build": "node node/build.js",
     "run-shell": "docker-compose run --rm --service-ports node /bin/bash",

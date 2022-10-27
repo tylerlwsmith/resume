@@ -58,7 +58,7 @@ On commits that don't require a new build (like when making edits to the README)
 
 ## Open graph image generation
 
-The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `public/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://resume.deadhandmedia.com/?open-graph-image.
+The open graph image features a low resolution version of the resume that replaces the text blocks with solid rectangles. The code that transforms the text blocks into rectangles lives in `assets/open-graph-image.js`. It works by wrapping the text blocks in solid-colored spans when the `?open-graph-image` query variable is present on the URL. You can see this in action by visiting https://resume.deadhandmedia.com/?open-graph-image.
 
 This low-resolution version of the resume is then pulled into `templates/open-graph-image.ejs` via iframe, which Puppeteer uses as a template for generating the final open graph image.
 

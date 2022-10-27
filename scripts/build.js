@@ -10,7 +10,7 @@ const { homepage } = require("./templates");
   console.log("Creating directory for generated assets ...");
   fse.emptyDirSync(path.join(__dirname, "../build/generated"));
   fse.copySync(
-    path.join(__dirname, "../public"),
+    path.join(__dirname, "../assets"),
     path.join(__dirname, "../build")
   );
 

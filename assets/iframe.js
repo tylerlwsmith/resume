@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.top.postMessage(height, "*");
   }
 
-  // Needed so for correct resizing from mobile to desktop.
+  /** Needed so for correct resizing from mobile to desktop. */
   const styleTag = document.createElement("style");
   styleTag.innerHTML = `
     body {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   document.head.appendChild(styleTag);
 
-  // Needed so the download button doesn't load the PDF inside the iframe.
+  /** Needed so the download button doesn't load the PDF inside the iframe. */
   document
     .querySelector("[data-download-resume]")
     .addEventListener("click", function (event) {
