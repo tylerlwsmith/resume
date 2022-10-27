@@ -12,7 +12,7 @@ To run the project locally, clone the repo and run the following commands from t
 
 ```sh
 docker-compose build
-docker-compose run --rm npm install
+docker-compose run --rm node npm install
 docker-compose up
 ```
 
