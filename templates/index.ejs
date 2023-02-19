@@ -56,24 +56,17 @@
               href="/generated/tyler-smith-resume.pdf"
               onclick="
                 const date = new Date();
-                const dateObj = {
-                  year: date.getFullYear(),
-                  month: date.getMonth() + 1,
-                  date: date.getDate(),
-                  formatDate() {
-                    return [
-                      this.year,
-                      this.month.toString().padStart(2, '0'),
-                      this.date.toString().padStart(2, '0'),
-                    ].join('-');
-                  }
-                }
+                const localeDate = (options) => date.toLocaleDateString('en-US', options);
+                const fourDigitYear = localeDate({ year: 'numeric' });
+                const twoDigitMonth = localeDate({ month: '2-digit' });
+                const twoDigitDay = localeDate({ day: '2-digit' });
+
                 this.setAttribute(
                   'download',
-                  `tyler-smith-resume-${dateObj.formatDate()}.pdf`
+                  `tyler-smith-resume-${fourDigitYear}-${twoDigitMonth}-${twoDigitDay}.pdf`
                 );
+
               "
-              download
             >
               <span class="download-button">Download</span>
             </a>
