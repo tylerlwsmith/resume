@@ -57,13 +57,13 @@
               onclick="
                 const date = new Date();
                 const localeDate = (options) => date.toLocaleDateString('en-US', options);
-                const fourDigitYear = localeDate({ year: 'numeric' });
-                const twoDigitMonth = localeDate({ month: '2-digit' });
-                const twoDigitDay = localeDate({ day: '2-digit' });
+                const yyyy = localeDate({ year: 'numeric' });
+                const mm = localeDate({ month: '2-digit' });
+                const dd = localeDate({ day: '2-digit' });
 
                 this.setAttribute(
                   'download',
-                  `tyler-smith-resume-${fourDigitYear}-${twoDigitMonth}-${twoDigitDay}.pdf`
+                  `tyler-smith-resume-${yyyy}-${mm}-${dd}.pdf`
                 );
 
               "
