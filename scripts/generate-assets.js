@@ -11,7 +11,7 @@ async function generateAssets() {
 
   /** Kill the process if it is still active after approximately thirty sec. */
   const timeout = setTimeout(function () {
-    throw new Error("Process timed out after one minute.");
+    throw new Error("Process timed out.");
   }, 30_000);
 
   /** Wait for the server to start on a random available port. */
