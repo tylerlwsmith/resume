@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   styleTag.innerHTML = `
     body {
       height: initial;
+      overflow: hidden;
     }
   `;
   document.head.appendChild(styleTag);
