@@ -28,6 +28,8 @@ body {
   width: 8.5in;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: stretch;
 }
 @media screen {
   body {
@@ -46,7 +48,6 @@ strong {
   font-weight: 600;
 }
 .page-wrapper {
-  height: 100%;
   display: flex;
   font-size: 10pt;
   flex-wrap: wrap;
