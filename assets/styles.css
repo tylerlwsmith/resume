@@ -101,7 +101,7 @@ strong {
 }
 .skill {
   margin-bottom: 4pt;
-  font-size: 9.5pt;
+  font-size: 9.2pt;
 }
 @media screen and (max-width: calc(8.5in - 1px)) {
   .skill {
@@ -284,7 +284,7 @@ strong {
 }
 .job__responsibility {
   margin-bottom: 6pt;
-  font-size: 9.5pt;
+  font-size: 9.2pt;
 }
 .education-detail {
   font-size: 9pt;
