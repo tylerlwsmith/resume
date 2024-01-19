@@ -3,3 +3,5 @@
 /.env
 /build/generated/*
 !/build/generated/.keep
+
+.DS_Store
