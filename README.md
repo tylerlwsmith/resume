@@ -11,9 +11,9 @@ When code is pushed to the main branch, the build process will use Puppeteer to 
 To run the project locally, clone the repo and run the following commands from the main project directory:
 
 ```sh
-docker-compose build
-docker-compose run --rm node npm install
-docker-compose up
+docker compose build
+docker compose run --rm node npm install
+docker compose up
 ```
 
 This will build a container with Chromium and its dependencies, install the Node packages, and start the development server at http://localhost:3000. The container is only intended for local development: it simply provides a runtime to mount your local installation into. On the production server, Netlify will serve the static files from the `build/` directory.
@@ -23,7 +23,7 @@ NPM will prevent the host machine from running the development server or running
 If you need to install a new package, you can open a bash shell in a running container by running the following command on the host:
 
 ```sh
-docker-compose exec node /bin/bash
+docker compose exec node /bin/bash
 ```
 
 Once inside the container, you can run NPM installation commands the way that you normally would.
@@ -37,7 +37,7 @@ npm install lodash
 Assets are automatically generated when the development server starts. To regenerate the assets manually, run the following command from the host machine while the container is up:
 
 ```sh
-docker-compose exec node npm run build
+docker compose exec node npm run build
 ```
 
 This kicks off the `node/build.js` script, which saves the generated files to the `build/generated` directory. _Generated files are not committed into version control_.
@@ -73,7 +73,7 @@ To combat this problem, a commit ref is added as a query parameter to the end of
 To use this environment variable during development, start the server with the following command:
 
 ```sh
-COMMIT_REF=$(git show-ref --hash refs/heads/main) docker-compose up
+COMMIT_REF=$(git show-ref --hash refs/heads/main) docker compose up
 ```
 
 Netlify automatically provides a `COMMIT_REF` environment variable at build time.
