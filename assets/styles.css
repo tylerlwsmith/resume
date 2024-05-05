@@ -253,15 +253,16 @@ strong {
   align-items: baseline;
   margin-bottom: 6pt;
 }
+.job__info:has(+ .job__info) {
+  margin-bottom: 0;
+}
 .job__title {
   font-size: 11pt;
   font-weight: 600;
   padding-right: 15pt;
 }
 .job__title--secondary {
-  margin-left: 0.3em;
   font-size: 10pt;
-  font-weight: 400;
 }
 .job__company {
   font-weight: 400;
