@@ -30,6 +30,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   align-items: stretch;
+  margin: 0;
 }
 @media screen {
   body {
