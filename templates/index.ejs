@@ -73,6 +73,9 @@
                 class="download-button__wrapper"
                 href="/generated/tyler-smith-resume.pdf"
                 onclick="
+                  // This does not work on the embedded version: the download
+                  // attribute only works for same-origin sites.
+
                   const date = new Date();
                   const localeDate = (options) => date.toLocaleDateString('en-US', options);
                   const yyyy = localeDate({ year: 'numeric' });

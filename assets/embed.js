@@ -24,15 +24,23 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
 
-      const resume = doc.querySelector('[data-resume-container="resume"]');
+      // We're grabbing the entire body instead of [data-resume-container] to
+      // ensure we grab the Cloudflare email deobfuscation script.
+      const htmlBody = doc.querySelector("body");
       const styles = doc.querySelectorAll('link[rel="stylesheet"]');
-      const elementsWithHref = doc.querySelectorAll("[href]");
+      const attributesWithOrigins = ["href", "src"];
 
-      for (element of elementsWithHref) {
-        try {
-          new URL(element.getAttribute("href"));
-        } catch (e) {
-          element.href = scriptOrigin + element.getAttribute("href");
+      for (attr of attributesWithOrigins) {
+        const elements = doc.querySelectorAll(`[${attr}]`);
+        for (const element of elements) {
+          try {
+            new URL(element.getAttribute(attr));
+          } catch (e) {
+            element.setAttribute(
+              attr,
+              scriptOrigin + element.getAttribute("href")
+            );
+          }
         }
       }
 
@@ -48,21 +56,27 @@
       Promise.all(styleLoadPromises).then(() => {
         wrapper.removeChild(loader);
 
-        // Loop through children to grab Cloudflare email decode script.
-        wrapper.appendChild(resume);
+        for (node of htmlBody.children) {
+          wrapper.appendChild(node);
+        }
 
-        // Append Cloudflare email deobfuscation.
-        const cloudflareScript = document.createElement("script");
-        cloudflareScript.setAttribute("data-cfasync", "false");
+        // Spreading keeps the array stable as we remove elements.
+        const scripts = [...wrapper.querySelectorAll("script, [onclick]")];
+        for (const originalElement of scripts) {
+          console.log(originalElement);
+          const newScript = document.createElement(originalElement.tagName);
+          newScript.innerHTML = originalElement.innerHTML;
+          for (const attr of [...originalElement.attributes]) {
+            newScript.setAttribute(attr.name, attr.value);
+          }
 
-        // Despite how ugly this url is, it appears to have remained stable for years.
-        // source: https://community.cloudflare.com/t/cdn-cgi-scripts-5c5dd728-cloudflare-static-email-decode-min-js/410998/6
-        cloudflareScript.src = `${scriptOrigin}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js`;
-        wrapper.appendChild(cloudflareScript);
+          originalElement.after(newScript);
+          originalElement.remove();
+        }
       });
     })
     .catch((e) => {
-      console.log("error");
+      console.error(e);
       const error = document.createElement("p");
 
       error.style.padding = "20px";
