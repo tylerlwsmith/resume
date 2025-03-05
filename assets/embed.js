@@ -24,7 +24,7 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
 
-      const resume = doc.querySelector('[data-resume-container="resume"]');
+      const htmlBody = doc.querySelector("body");
       const styles = doc.querySelectorAll('link[rel="stylesheet"]');
       const elementsWithHref = doc.querySelectorAll("[href]");
 
@@ -47,7 +47,11 @@
 
       Promise.all(styleLoadPromises).then(() => {
         wrapper.removeChild(loader);
-        wrapper.appendChild(resume);
+
+        // Loop through children to grab Cloudflare email decode script.
+        for (const child of htmlBody.children) {
+          wrapper.appendChild(child);
+        }
       });
     })
     .catch((e) => {
