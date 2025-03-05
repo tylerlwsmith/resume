@@ -3,7 +3,7 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "14.18.1"
+  NODE_VERSION = "22.14.0"
   NOT_HOST_MACHINE = "1"
   NODE_ENV = "production"
   AWS_LAMBDA_FUNCTION_NAME = "THIS_FIELD_IS_REQUIRED_FOR_CHROME_AWS_LAMBDA"
