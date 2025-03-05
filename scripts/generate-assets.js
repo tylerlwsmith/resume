@@ -1,5 +1,5 @@
 const path = require("path");
-const chromium = require("chrome-aws-lambda");
+const chromium = require("@sparticuz/chromium");
 const puppeteer = require("puppeteer-core");
 const app = require("./app");
 
@@ -27,7 +27,7 @@ async function generateAssets() {
   const executablePath =
     process.env.NODE_ENV === "development"
       ? "/usr/bin/chromium"
-      : await chromium.executablePath;
+      : await chromium.executablePath();
 
   browser = await puppeteer.launch({
     headless: true,
