@@ -28,225 +28,250 @@
     />
     <link href="/styles.css" rel="stylesheet" />
     <script src="/open-graph-image.js"></script>
-    <script src="/iframe.js"></script>
 
     <!-- This allows links to work if this page is embedded in an iframe. -->
     <base target="_top" />
+
+    <!-- Inlined as to not interfere with embedding. -->
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+      html {
+        min-height: 100vh;
+        height: 100%;
+      }
+      body {
+        background-color: #fff;
+        margin: 0;
+        height: 11in;
+        max-width: 8.5in;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="page-wrapper">
-      <main class="resume">
-        <header>
-          <div class="download-button__container">
-            <!--
-            The download link is on the button's wrapper instead of on the button
-            itself because the button moves several pixels when it's clicked.
-            This can cause a misfire if the link is no longer under the
-            cursor when the mouse up event occurs.
-            -->
-            <a
-              data-download-resume
-              class="download-button__wrapper"
-              href="/generated/tyler-smith-resume.pdf"
-              onclick="
-                const date = new Date();
-                const localeDate = (options) => date.toLocaleDateString('en-US', options);
-                const yyyy = localeDate({ year: 'numeric' });
-                const mm = localeDate({ month: '2-digit' });
-                const dd = localeDate({ day: '2-digit' });
-
-                this.setAttribute(
-                  'download',
-                  `tyler-smith-resume-${yyyy}-${mm}-${dd}.pdf`
-                );
-              "
-            >
-              <span class="download-button">Download</span>
-            </a>
-          </div>
-          <h1 class="resume__title">
-            <span class="first-name">Tyler</span> Smith
-          </h1>
-          <ul class="contact-list">
-            <li class="contact-list__item">
-              <a href="tel:661-378-5228" class="contact-list__link">
-                (661) 378-5228
-              </a>
-            </li>
-            <li class="contact-list__item">
+    <div data-resume-container="resume">
+      <div class="page-wrapper">
+        <main class="resume">
+          <header>
+            <div class="download-button__container">
+              <!--
+              The download link is on the button's wrapper instead of on the button
+              itself because the button moves several pixels when it's clicked.
+              This can cause a misfire if the link is no longer under the
+              cursor when the mouse up event occurs.
+              -->
               <a
-                href="mailto:tyler@deadhandmedia.com"
-                class="contact-list__link"
+                data-download-resume
+                class="download-button__wrapper"
+                href="/generated/tyler-smith-resume.pdf"
+                onclick="
+                  const date = new Date();
+                  const localeDate = (options) => date.toLocaleDateString('en-US', options);
+                  const yyyy = localeDate({ year: 'numeric' });
+                  const mm = localeDate({ month: '2-digit' });
+                  const dd = localeDate({ day: '2-digit' });
+
+                  this.setAttribute(
+                    'download',
+                    `tyler-smith-resume-${yyyy}-${mm}-${dd}.pdf`
+                  );
+                "
               >
-                tyler@deadhandmedia.com
+                <span class="download-button">Download</span>
               </a>
-            </li>
-            <li class="contact-list__item">
-              <a href="https://deadhandmedia.com" class="contact-list__link">
-                deadhandmedia.com
-              </a>
-            </li>
-          </ul>
-        </header>
-
-        <section>
-          <h2 class="section__title">Experience</h2>
-          <ol class="job__container">
-            <li class="job">
-              <div class="job__info">
-                <span class="job__title">
-                  Principal Software Engineer,
-                  <span class="job__company">Autodesk</span>
-                </span>
-                <span class="job__date">April 2024 &ndash; Present</span>
-              </div>
-              <div class="job__info">
-                <span class="job__title job__title--secondary">
-                  Senior Software Engineer,
-                  <span class="job__company">Autodesk</span>
-                </span>
-                <span class="job__date">March 2022 &ndash; April 2024</span>
-              </div>
-              <ul class="job__responsibilities">
-                <li class="job__responsibility">
-                  Full-stack software engineer on the APS Developer Portal and
-                  the Autodesk App Store.
-                </li>
-
-                <li class="job__responsibility">
-                  Led initial modernization of APS Developer Portal,
-                  transitioning Django templates to React, React Testing
-                  Library, and Django REST Framework.
-                </li>
-
-                <li class="job__responsibility">
-                  Tied for 2nd place in an internal company hackathon against 23
-                  teams.
-                </li>
-              </ul>
-            </li>
-
-            <li class="job">
-              <div class="job__info">
-                <span class="job__title">
-                  Software Engineer, <span class="job__company">Unearth</span>
-                </span>
-                <span class="job__date">May 2020 &ndash; July 2021</span>
-              </div>
-              <ul class="job__responsibilities">
-                <li class="job__responsibility">
-                  Migrated the company’s flagship app from legacy PHP to
-                  Laravel, React, and TypeScript. Integrated with Twilio,
-                  Mailgun, and third-party legislator-lookup services to connect
-                  constituents with their officials.
-                </li>
-                <li class="job__responsibility">
-                  Wireframed, designed, and developed a statewide polling
-                  location lookup tool with county-by-county information on
-                  COVID-19 voting procedures for a successful California ballot
-                  initiative campaign in under two weeks.
-                </li>
-                <li class="job__responsibility">
-                  Created automation tools that streamlined the company’s data
-                  aggregation processes from weeks to minutes.
-                </li>
-              </ul>
-            </li>
-
-            <li class="job">
-              <div class="job__info">
-                <span class="job__title"> Freelance Web Developer </span>
-                <span class="job__date">Feb 2017 &ndash; May 2020</span>
-              </div>
-              <ul class="job__responsibilities">
-                <li class="job__responsibility">
-                  Built websites for comic book author Stan Lee, a commercial
-                  real estate brokerage with listings across multiple states, a
-                  Series A funded startup, several regional marketing agencies
-                  and more.
-                </li>
-                <li class="job__responsibility">
-                  Developed a web app used to promote a Paramount Pictures film,
-                  websites for two successful statewide ballot initiative
-                  opposition campaigns, an economic data visualization platform
-                  and countless political advocacy websites.
-                </li>
-              </ul>
-            </li>
-          </ol>
-        </section>
-
-        <section>
-          <h2 class="section__title">Education</h2>
-          <p class="education-detail">
-            <strong>Bachelor of Arts</strong>, Communication Studies
-            concentration in Public Relations.
-          </p>
-          <p class="education-detail">
-            California Sacramento State University, Sacramento. Summer 2015
-            Graduate.
-          </p>
-        </section>
-      </main>
-
-      <aside class="sidebar">
-        <div class="skills__wrapper">
-          <h2 class="section__title screen-reader--desktop">Skills</h2>
-
-          <h3 class="skills__heading">Front-End</h3>
-          <div class="two-column">
-            <ul class="skills__container md:two-column">
-              <li class="skill">React</li>
-              <li class="skill">TypeScript</li>
-              <li class="skill">Jest</li>
-              <li class="skill">Vue</li>
-              <li class="skill">XState</li>
-              <li class="skill">Svelte</li>
+            </div>
+            <h1 class="resume__title">
+              <span class="first-name">Tyler</span> Smith
+            </h1>
+            <ul class="contact-list">
+              <li class="contact-list__item">
+                <a href="tel:661-378-5228" class="contact-list__link">
+                  (661) 378-5228
+                </a>
+              </li>
+              <li class="contact-list__item">
+                <a
+                  href="mailto:tyler@deadhandmedia.com"
+                  class="contact-list__link"
+                >
+                  tyler@deadhandmedia.com
+                </a>
+              </li>
+              <li class="contact-list__item">
+                <a href="https://deadhandmedia.com" class="contact-list__link">
+                  deadhandmedia.com
+                </a>
+              </li>
             </ul>
+          </header>
+
+          <section>
+            <h2 class="section__title">Experience</h2>
+            <ol class="job__container">
+              <li class="job">
+                <div class="job__info">
+                  <span class="job__title">
+                    Principal Software Engineer,
+                    <span class="job__company">Autodesk</span>
+                  </span>
+                  <span class="job__date">April 2024 &ndash; Present</span>
+                </div>
+                <div class="job__info">
+                  <span class="job__title job__title--secondary">
+                    Senior Software Engineer,
+                    <span class="job__company">Autodesk</span>
+                  </span>
+                  <span class="job__date">March 2022 &ndash; April 2024</span>
+                </div>
+                <ul class="job__responsibilities">
+                  <li class="job__responsibility">
+                    Full-stack software engineer on the APS Developer Portal and
+                    the Autodesk App Store.
+                  </li>
+
+                  <li class="job__responsibility">
+                    Led initial modernization of APS Developer Portal,
+                    transitioning Django templates to React, React Testing
+                    Library, and Django REST Framework.
+                  </li>
+
+                  <li class="job__responsibility">
+                    Tied for 2nd place in an internal company hackathon against
+                    23 teams.
+                  </li>
+                </ul>
+              </li>
+
+              <li class="job">
+                <div class="job__info">
+                  <span class="job__title">
+                    Software Engineer, <span class="job__company">Unearth</span>
+                  </span>
+                  <span class="job__date">May 2020 &ndash; July 2021</span>
+                </div>
+                <ul class="job__responsibilities">
+                  <li class="job__responsibility">
+                    Migrated the company’s flagship app from legacy PHP to
+                    Laravel, React, and TypeScript. Integrated with Twilio,
+                    Mailgun, and third-party legislator-lookup services to
+                    connect constituents with their officials.
+                  </li>
+                  <li class="job__responsibility">
+                    Wireframed, designed, and developed a statewide polling
+                    location lookup tool with county-by-county information on
+                    COVID-19 voting procedures for a successful California
+                    ballot initiative campaign in under two weeks.
+                  </li>
+                  <li class="job__responsibility">
+                    Created automation tools that streamlined the company’s data
+                    aggregation processes from weeks to minutes.
+                  </li>
+                </ul>
+              </li>
+
+              <li class="job">
+                <div class="job__info">
+                  <span class="job__title"> Freelance Web Developer </span>
+                  <span class="job__date">Feb 2017 &ndash; May 2020</span>
+                </div>
+                <ul class="job__responsibilities">
+                  <li class="job__responsibility">
+                    Built websites for comic book author Stan Lee, a commercial
+                    real estate brokerage with listings across multiple states,
+                    a Series A funded startup, several regional marketing
+                    agencies and more.
+                  </li>
+                  <li class="job__responsibility">
+                    Developed a web app used to promote a Paramount Pictures
+                    film, websites for two successful statewide ballot
+                    initiative opposition campaigns, an economic data
+                    visualization platform and countless political advocacy
+                    websites.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h2 class="section__title">Education</h2>
+            <p class="education-detail">
+              <strong>Bachelor of Arts</strong>, Communication Studies
+              concentration in Public Relations.
+            </p>
+            <p class="education-detail">
+              California Sacramento State University, Sacramento. Summer 2015
+              Graduate.
+            </p>
+          </section>
+        </main>
+
+        <aside class="sidebar">
+          <div class="skills__wrapper">
+            <h2 class="section__title screen-reader--desktop">Skills</h2>
+
+            <h3 class="skills__heading">Front-End</h3>
+            <div class="two-column">
+              <ul class="skills__container md:two-column">
+                <li class="skill">React</li>
+                <li class="skill">TypeScript</li>
+                <li class="skill">Jest</li>
+                <li class="skill">Vue</li>
+                <li class="skill">XState</li>
+                <li class="skill">Svelte</li>
+              </ul>
+              <ul class="skills__container md:two-column">
+                <li class="skill">CSS</li>
+                <li class="skill">Scss</li>
+                <li class="skill">Emotion</li>
+                <li class="skill">Tailwind</li>
+                <li class="skill">Webpack</li>
+                <li class="skill">Cypress</li>
+              </ul>
+            </div>
+
+            <h3 class="skills__heading">Back-End</h3>
             <ul class="skills__container md:two-column">
-              <li class="skill">CSS</li>
-              <li class="skill">Scss</li>
-              <li class="skill">Emotion</li>
-              <li class="skill">Tailwind</li>
-              <li class="skill">Webpack</li>
-              <li class="skill">Cypress</li>
+              <li class="skill">Node.js / Express / Next.js</li>
+              <li class="skill">PHP / Laravel / Livewire</li>
+              <li class="skill">Python / Django / DRF</li>
+              <li class="skill">Ruby / Rails / Turbo</li>
+              <li class="skill">MySQL / PostgreSQL</li>
+              <li class="skill">Nginx / Certbot / Caddy</li>
+              <li class="skill">Go / Gorilla Mux</li>
+            </ul>
+
+            <h3 class="skills__heading">DevOps</h3>
+            <ul class="skills__container two-column md:three-column">
+              <li class="skill">Docker</li>
+              <li class="skill">Jenkins</li>
+              <li class="skill">Linux</li>
+              <li class="skill">Shell Scripts</li>
+              <li class="skill">Ansible</li>
+              <li class="skill">Terraform</li>
+            </ul>
+
+            <h3 class="skills__heading">Mobile</h3>
+            <ul class="skills__container two-column">
+              <li class="skill">React Native</li>
+            </ul>
+
+            <h3 class="skills__heading">Design</h3>
+            <ul class="skills__container two-column">
+              <li class="skill">XD</li>
+              <li class="skill">Photoshop</li>
             </ul>
           </div>
-
-          <h3 class="skills__heading">Back-End</h3>
-          <ul class="skills__container md:two-column">
-            <li class="skill">Node.js / Express / Next.js</li>
-            <li class="skill">PHP / Laravel / Livewire</li>
-            <li class="skill">Python / Django / DRF</li>
-            <li class="skill">Ruby / Rails / Turbo</li>
-            <li class="skill">MySQL / PostgreSQL</li>
-            <li class="skill">Nginx / Certbot / Caddy</li>
-            <li class="skill">Go / Gorilla Mux</li>
-          </ul>
-
-          <h3 class="skills__heading">DevOps</h3>
-          <ul class="skills__container two-column md:three-column">
-            <li class="skill">Docker</li>
-            <li class="skill">Jenkins</li>
-            <li class="skill">Linux</li>
-            <li class="skill">Shell Scripts</li>
-            <li class="skill">Ansible</li>
-            <li class="skill">Terraform</li>
-          </ul>
-
-          <h3 class="skills__heading">Mobile</h3>
-          <ul class="skills__container two-column">
-            <li class="skill">React Native</li>
-          </ul>
-
-          <h3 class="skills__heading">Design</h3>
-          <ul class="skills__container two-column">
-            <li class="skill">XD</li>
-            <li class="skill">Photoshop</li>
-          </ul>
-        </div>
-      </aside>
+        </aside>
+      </div>
     </div>
   </body>
 </html>

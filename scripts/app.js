@@ -1,10 +1,13 @@
 const path = require("path");
 const express = require("express");
+const cors = require("cors");
 const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
 
 const { homepage, openGraphImage, embed } = require("./templates");
 const app = express();
+
+app.use(cors());
 
 if (process.env.ENABLE_LIVERELOAD === "1") {
   /** Open livereload and watch for changes. */

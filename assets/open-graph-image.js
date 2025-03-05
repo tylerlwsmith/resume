@@ -25,55 +25,57 @@ function addOpenGraphStyles() {
   const styleTag = document.createElement("style");
   styleTag.innerHTML = `
     /* Style overrides */
-    a {
-      text-decoration: none;
-    }
+    [data-resume-container="resume"] {
+      a {
+        text-decoration: none;
+      }
 
-    .download-button {
-      display: none;
-    }
+      .download-button {
+        display: none;
+      }
 
-    .contact-list__item:after {
-      color: transparent;
-    }
+      .contact-list__item:after {
+        color: transparent;
+      }
 
-    .job__responsibilities {
-      list-style: none;
-    }
+      .job__responsibilities {
+        list-style: none;
+      }
 
-    .job__responsibility {
-      position: relative;
-    }
+      .job__responsibility {
+        position: relative;
+      }
 
-    .job__responsibility::before {
-      content: "\\2022"; 
-      position: absolute;
-      left: -24px;
-      top: 6px;
-      line-height: 0;
-      font-size: 60px;
-      color: #ededed;
-    }
+      .job__responsibility::before {
+        content: "\\2022"; 
+        position: absolute;
+        left: -24px;
+        top: 6px;
+        line-height: 0;
+        font-size: 60px;
+        color: #ededed;
+      }
 
-    /* Text wraps */
-    [class^="text-wrap"] {
-      color: transparent;
-    }
+      /* Text wraps */
+      [class^="text-wrap"] {
+        color: transparent;
+      }
 
-    .text-wrap--gray {
-      background: #ededed;
-    }
+      .text-wrap--gray {
+        background: #ededed;
+      }
 
-    .text-wrap--blue-100 {
-      background: #e0ecf5;
-    }
+      .text-wrap--blue-100 {
+        background: #e0ecf5;
+      }
 
-    .text-wrap--blue-200 {
-      background: #4098db;
-    }
+      .text-wrap--blue-200 {
+        background: #4098db;
+      }
 
-    .text-wrap--blue-300 {
-      background: #2280c7;
+      .text-wrap--blue-300 {
+        background: #2280c7;
+      }
     }
   `;
 

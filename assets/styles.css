@@ -1,23 +1,9 @@
-:root {
+[data-resume-container="resume"] {
   --color__primary: #0066b2;
   --breakpoint: 8.5in;
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
-  color-adjust: exact !important; /* Firefox */
-}
-@page {
-  size: letter portrait;
-  margin: 0;
-}
-html {
-  min-height: 100vh;
-  height: 100%;
-}
-body {
+
+  container-type: inline-size;
+  container-name: webpage;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.7;
@@ -30,328 +16,334 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   align-items: stretch;
-  margin: 0;
-}
-@media screen {
-  body {
+  @media screen {
     width: 100%;
-    max-width: calc(8.5in - 1px);
+    max-width: 8.5in;
     height: 100%;
     min-height: 11in;
   }
 }
-ul,
-ol {
-  list-style: none;
-  padding-left: 0;
-}
-strong {
-  font-weight: 600;
-}
-.page-wrapper {
-  display: flex;
-  font-size: 10pt;
-  flex-wrap: wrap;
-}
-.sidebar {
-  flex: 0 0 30%;
-  background: var(--color__primary);
-  color: #fff;
-  order: -1;
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .sidebar {
-    order: 0;
-    flex: 0 0 100%;
-    padding: 0 0.4in 0.6in;
-    background: none;
-    color: inherit;
+[data-resume-container="resume"] {
+  *,
+  *::before,
+  *::after {
+    all: revert;
+
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+    color-adjust: exact !important; /* Firefox */
   }
-}
-@media screen and (max-width: 400px) {
-  .sidebar {
-    padding: 0 0.3in 0.6in;
+  ul,
+  ol {
+    list-style: none;
+    padding-left: 0;
   }
-}
-.skills__wrapper {
-  padding-top: 1.9in;
-  padding-bottom: 0.25in;
-  padding-left: 0.35in;
-  padding-right: 0; /* HACK: Prevents word wrapping */
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
+  strong {
+    font-weight: 600;
+  }
+  .page-wrapper {
+    display: flex;
+    font-size: 10pt;
+    flex-wrap: wrap;
+  }
+  .sidebar {
+    flex: 0 0 30%;
+    background: var(--color__primary);
+    color: #fff;
+    order: -1;
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        order: 0;
+        flex: 0 0 100%;
+        padding: 0 0.4in 0.6in;
+        background: none;
+        color: inherit;
+      }
+      @container webpage (max-width: 400px) {
+        padding: 0 0.3in 0.6in;
+      }
+    }
+  }
   .skills__wrapper {
-    padding: 0;
+    padding-top: 1.9in;
+    padding-bottom: 0.25in;
+    padding-left: 0.35in;
+    padding-right: 0; /* HACK: Prevents word wrapping */
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        padding: 0;
+      }
+    }
   }
-}
-.skills__heading {
-  font-size: 11pt;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 5pt;
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
   .skills__heading {
+    font-size: 11pt;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 5pt;
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        font-size: 11pt;
+        font-weight: 600;
+        padding-right: 15pt;
+      }
+    }
+  }
+  .skills__container {
+    margin-top: 0;
+    margin-bottom: 23pt;
+  }
+  .skill {
+    margin-bottom: 4pt;
+    font-size: 9.2pt;
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        margin-bottom: 2pt;
+      }
+    }
+  }
+  .avatar__wrapper {
+    background: var(--color__primary);
+    padding: 0.3in 0.5in;
+    margin-top: 0.9in;
+  }
+  .resume {
+    flex: 1 0 0;
+    padding: 0.4in 0.4in;
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        padding: 0.4in 0.4in 0;
+      }
+      @container webpage (max-width: 400px) {
+        padding: 0.4in 0.3in 0;
+      }
+    }
+  }
+  .resume__title {
+    margin: 0.25em 0;
+    margin-left: -242px;
+    line-height: 1.2;
+    font-size: 62.2pt;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: var(--color__primary);
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        margin-left: 0;
+      }
+      @container webpage (max-width: 600px) {
+        font-size: clamp(30pt, 13.5vw, 62.2pt);
+      }
+    }
+  }
+  .first-name {
+    color: #fff;
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        color: inherit;
+      }
+    }
+  }
+  .download-button {
+    background-color: var(--color__primary);
+    display: inline-block;
+    color: #fff;
+    appearance: none;
+    border: none;
+    padding: 0.55em 2em;
+    border-radius: 1000px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    transition: box-shadow, transform, 0.1s;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  }
+  .download-button__wrapper:hover .download-button,
+  .download-button__wrapper:focus .download-button {
+    background-color: #0c7bcf;
+  }
+  .download-button__wrapper:active .download-button {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+    transform: translateY(2px);
+    background-color: #2a97eb;
+  }
+  .download-button__wrapper {
+    display: inline-block;
+    text-decoration: none;
+    opacity: 1;
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    border-radius: 1000px; /* Needed to make sure clicks don't capture on the corners. */
+    @media screen {
+      @container webpage (max-width: 960px) {
+        position: absolute;
+      }
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        position: initial;
+      }
+    }
+  }
+  .download-button__container {
+    @media screen {
+      @container webpage (max-width: calc(8.5in - 1px)) {
+        text-align: right;
+        margin-right: -10px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10pt;
+    margin: 0;
+  }
+  .contact-list__item {
+    margin-bottom: 0.1em;
+    &:not(:last-of-type):after {
+      content: "•";
+      display: inline-block;
+      margin-right: 0.6em;
+      margin-left: 0.4em;
+    }
+    @media screen {
+      @container webpage (max-width: 450px) {
+        font-size: 9pt;
+        line-height: 1.4;
+        /* HACK: Switch order of email to make everything fit on mobile */
+        &:nth-of-type(2) {
+          order: -1;
+        }
+      }
+    }
+  }
+  .contact-list__link {
+    text-decoration-skip-ink: none;
+    color: var(--color__primary);
+  }
+  .section__title {
+    margin: 1.6em 0 0.25em;
+    color: var(--color__primary);
+    text-transform: uppercase;
+  }
+  .job__container {
+    margin-top: 0;
+  }
+  .job {
+    margin-bottom: 6pt;
+  }
+  .job:not(:first-of-type) {
+    margin-top: 18pt;
+  }
+  .job__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6pt;
+  }
+  .job__info:has(+ .job__info) {
+    margin-bottom: 0;
+  }
+  .job__title {
     font-size: 11pt;
     font-weight: 600;
     padding-right: 15pt;
   }
-}
-.skills__container {
-  margin-top: 0;
-  margin-bottom: 23pt;
-}
-.skill {
-  margin-bottom: 4pt;
-  font-size: 9.2pt;
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .skill {
-    margin-bottom: 2pt;
+  .job__title--secondary {
+    font-size: 10pt;
   }
-}
-.avatar__wrapper {
-  background: var(--color__primary);
-  padding: 0.3in 0.5in;
-  margin-top: 0.9in;
-}
-.resume {
-  flex: 1 0 0;
-  padding: 0.4in 0.4in;
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .resume {
-    padding: 0.4in 0.4in 0;
+  .job__company {
+    font-weight: 400;
   }
-}
-@media screen and (max-width: 400px) {
-  .resume {
-    padding: 0.4in 0.3in 0;
-  }
-}
-.resume__title {
-  margin: 0.25em 0;
-  margin-left: -242px;
-  line-height: 1.2;
-  font-size: 62.2pt;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-  color: var(--color__primary);
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .resume__title {
-    margin-left: 0;
-  }
-}
-@media screen and (max-width: 600px) {
-  .resume__title {
-    font-size: clamp(30pt, 13.5vw, 62.2pt);
-  }
-}
-.first-name {
-  color: #fff;
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .first-name {
-    color: inherit;
-  }
-}
-.download-button {
-  background-color: var(--color__primary);
-  display: inline-block;
-  color: #fff;
-  appearance: none;
-  border: none;
-  padding: 0.55em 2em;
-  border-radius: 1000px;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  transition: box-shadow, transform, 0.1s;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
-}
-.download-button__wrapper:hover .download-button,
-.download-button__wrapper:focus .download-button {
-  background-color: #0c7bcf;
-}
-.download-button__wrapper:active .download-button {
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
-  transform: translateY(2px);
-  background-color: #2a97eb;
-}
-.download-button__wrapper {
-  display: inline-block;
-  text-decoration: none;
-  opacity: 1;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  border-radius: 1000px; /* Needed to make sure clicks don't capture on the corners. */
-}
-@media screen and (max-width: 960px) {
-  .download-button__wrapper {
-    position: absolute;
-  }
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .download-button__wrapper {
-    position: initial;
-  }
-}
-@media screen and (max-width: calc(8.5in - 1px)) {
-  .download-button__container {
-    text-align: right;
-    margin-right: -10px;
-    margin-bottom: 30px;
-  }
-}
-.contact-list {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 10pt;
-  margin: 0;
-}
-.contact-list__item {
-  margin-bottom: 0.1em;
-}
-.contact-list__item:not(:last-of-type):after {
-  content: "•";
-  display: inline-block;
-  margin-right: 0.6em;
-  margin-left: 0.4em;
-}
-@media screen and (max-width: 450px) {
-  .contact-list__item {
+  .job__date {
+    font-weight: 500;
     font-size: 9pt;
-    line-height: 1.4;
+    color: #666;
   }
-  /* HACK: Switch order of email to make everything fit on mobile */
-  .contact-list__item:nth-of-type(2) {
-    order: -1;
+  .job__date--secondary {
+    font-size: 8pt;
   }
-}
-.contact-list__link {
-  text-decoration-skip-ink: none;
-  color: var(--color__primary);
-}
-.section__title {
-  margin: 1.6em 0 0.25em;
-  color: var(--color__primary);
-  text-transform: uppercase;
-}
-.job__container {
-  margin-top: 0;
-}
-.job {
-  margin-bottom: 6pt;
-}
-.job:not(:first-of-type) {
-  margin-top: 18pt;
-}
-.job__info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 6pt;
-}
-.job__info:has(+ .job__info) {
-  margin-bottom: 0;
-}
-.job__title {
-  font-size: 11pt;
-  font-weight: 600;
-  padding-right: 15pt;
-}
-.job__title--secondary {
-  font-size: 10pt;
-}
-.job__company {
-  font-weight: 400;
-}
-.job__date {
-  font-weight: 500;
-  font-size: 9pt;
-  color: #666;
-}
-.job__date--secondary {
-  font-size: 8pt;
-}
-.job__responsibilities {
-  list-style: disc;
-  padding-left: 16pt;
-}
-@media screen and (max-width: 600px) {
   .job__responsibilities {
-    padding-left: 0;
+    list-style: disc;
+    padding-left: 16pt;
+    @media screen {
+      @container webpage (max-width: 600px) {
+        padding-left: 0;
+      }
+    }
   }
-}
-.job__responsibility {
-  margin-bottom: 6pt;
-  font-size: 9.2pt;
-}
-.education-detail {
-  font-size: 9pt;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
+  .job__responsibility {
+    margin-bottom: 6pt;
+    font-size: 9.2pt;
+  }
+  .education-detail {
+    font-size: 9pt;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
 
-/* Utilities */
-.two-column {
-  display: flex;
-  flex-wrap: wrap;
-}
-.two-column > * {
-  flex: 0 0 50%;
-}
-@media screen and (max-width: calc(8.5in - 1px)) and (min-width: 501px) {
-  .md\:two-column {
+  /* Utilities */
+  .two-column {
     display: flex;
     flex-wrap: wrap;
   }
-  .md\:two-column > * {
+  .two-column > * {
     flex: 0 0 50%;
   }
-  .md\:three-column {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .md\:three-column > * {
-    flex: 0 0 33.33%;
-  }
-}
-@media screen and (min-width: 801px) {
-  .screen-reader--desktop {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    border: 0;
-  }
-}
-/* Print styles */
-@media print {
-  /* HACK: Fixes bug in Firefox that prints a blank second page. */
-  .page-wrapper {
-    overflow: hidden;
-  }
-  .download-button__wrapper {
-    display: none;
+  @media screen {
+    @container webpage (max-width: calc(8.5in - 1px)) and (min-width: 501px) {
+      .md\:two-column {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .md\:two-column > * {
+        flex: 0 0 50%;
+      }
+      .md\:three-column {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .md\:three-column > * {
+        flex: 0 0 33.33%;
+      }
+    }
   }
   .screen-reader--desktop {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    border: 0;
+    @media screen {
+      @container webpage (min-width: 801px) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        -webkit-clip-path: inset(50%);
+        clip-path: inset(50%);
+        border: 0;
+      }
+    }
+  }
+  /* Print styles */
+  @media print {
+    /* HACK: Fixes bug in Firefox that prints a blank second page. */
+    .page-wrapper {
+      overflow: hidden;
+    }
+    .download-button__wrapper {
+      display: none;
+    }
+    .screen-reader--desktop {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%);
+      border: 0;
+    }
   }
 }

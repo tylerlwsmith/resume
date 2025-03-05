@@ -1,5 +1,4 @@
-FROM node:14.18.1-buster
-
+FROM node:22.14.0-bullseye
 WORKDIR /srv/app
 
 # Install Chromium dependencies and Chromium.

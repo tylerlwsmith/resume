@@ -36,6 +36,9 @@ async function generateAssets() {
   });
   const page = await browser.newPage();
 
+  // Keeps download button off page.
+  await page.emulateMediaType("print");
+
   console.log("Generating resume PDF and PNG");
   // Width must be set so we don't hit the mobile breakpoint on png.
   await page.setViewport({ width: 1056, height: 0, deviceScaleFactor: 2 });
@@ -54,6 +57,7 @@ async function generateAssets() {
     border.style.border = "1px solid #ccc";
     border.style.inset = "0px";
     border.style.width = `${el.offsetWidth}px`;
+    border.style.height = `${el.offsetHeight}px`;
     el.appendChild(border);
   });
   await pageBody.screenshot({
