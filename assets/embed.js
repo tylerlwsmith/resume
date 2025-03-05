@@ -38,7 +38,7 @@
           } catch (e) {
             element.setAttribute(
               attr,
-              scriptOrigin + element.getAttribute("href")
+              scriptOrigin + element.getAttribute(attr)
             );
           }
         }
@@ -63,7 +63,6 @@
         // Spreading keeps the array stable as we remove elements.
         const scripts = [...wrapper.querySelectorAll("script, [onclick]")];
         for (const originalElement of scripts) {
-          console.log(originalElement);
           const newScript = document.createElement(originalElement.tagName);
           newScript.innerHTML = originalElement.innerHTML;
           for (const attr of [...originalElement.attributes]) {
