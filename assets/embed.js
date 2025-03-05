@@ -24,7 +24,7 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
 
-      const htmlBody = doc.querySelector("body");
+      const resume = doc.querySelector('[data-resume-container="resume"]');
       const styles = doc.querySelectorAll('link[rel="stylesheet"]');
       const elementsWithHref = doc.querySelectorAll("[href]");
 
@@ -49,9 +49,13 @@
         wrapper.removeChild(loader);
 
         // Loop through children to grab Cloudflare email decode script.
-        for (const child of htmlBody.children) {
-          wrapper.appendChild(child);
-        }
+        wrapper.appendChild(resume);
+
+        // Append Cloudflare email deobfuscation.
+        const cloudflareScript = document.createElement("script");
+        cloudflareScript.setAttribute("data-cfasync", "false");
+        cloudflareScript.src = `${scriptOrigin}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js`;
+        wrapper.appendChild(cloudflareScript);
       });
     })
     .catch((e) => {
