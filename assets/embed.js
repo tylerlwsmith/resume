@@ -56,6 +56,7 @@
       Promise.all(styleLoadPromises).then(() => {
         wrapper.removeChild(loader);
 
+        // It doesn't work in production without the spread.
         for (node of [...htmlBody.children]) {
           wrapper.appendChild(node);
         }
