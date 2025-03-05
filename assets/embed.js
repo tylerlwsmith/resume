@@ -54,6 +54,9 @@
         // Append Cloudflare email deobfuscation.
         const cloudflareScript = document.createElement("script");
         cloudflareScript.setAttribute("data-cfasync", "false");
+
+        // Despite how ugly this url is, it appears to have remained stable for years.
+        // source: https://community.cloudflare.com/t/cdn-cgi-scripts-5c5dd728-cloudflare-static-email-decode-min-js/410998/6
         cloudflareScript.src = `${scriptOrigin}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js`;
         wrapper.appendChild(cloudflareScript);
       });
