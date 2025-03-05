@@ -12,3 +12,4 @@
   for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+    Access-Control-Allow-Origin = "*"
