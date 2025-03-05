@@ -56,7 +56,7 @@
       Promise.all(styleLoadPromises).then(() => {
         wrapper.removeChild(loader);
 
-        for (node of htmlBody.children) {
+        for (node of [...htmlBody.children]) {
           wrapper.appendChild(node);
         }
 
